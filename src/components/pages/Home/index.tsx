@@ -15,21 +15,6 @@ function Home(props: Props) {
 
     const { list } = props;
 
-    // const [list, setList] = useState<Task[]>(initialTasks);
-
-    function addTask(task: Task) {
-
-        const todo = list.find(todo => todo === task);
-
-        if (todo) {
-            alert('Esta tarefa já foi cadastrada!');
-        } else {
-            // task.id = list.length+1;
-            // setList([ ...list, task ]);
-            alert('TODO Add method!');
-        }
-    }
-
     return (
         <View style={styles.container}>
             <TaskAdd />
