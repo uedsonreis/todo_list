@@ -1,4 +1,4 @@
-# Pokédex
+# Todo List
 
 Este projeto foi desenvolvido para a Oficina de React Native na UFOB (Universidade Federal do Oeste da Bahia).
 
