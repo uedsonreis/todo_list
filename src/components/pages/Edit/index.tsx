@@ -46,7 +46,7 @@ export default function EditTask(props: Props) {
         <View style={styles.container}>
             <Input
                 label={(task.isDone) ? "Tarefa já realizada." : "Tarefa ainda não realizada."}
-                placeholder="Informe o texto da nova Tarefa"
+                placeholder="Informe o texto da Tarefa"
                 value={text} onChangeText={text => setText(text)}
             />
             <Button containerStyle={styles.buttonSave} title="Salvar" onPress={() => addTask()} />

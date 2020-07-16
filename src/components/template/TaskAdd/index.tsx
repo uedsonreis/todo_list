@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Button, TextInput, View } from 'react-native';
+import { View } from 'react-native';
+import { Button, Input } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from './styles';
 import { Task } from '../../../domain';
@@ -22,14 +24,20 @@ export default function TaskAdd(props: Props) {
     }
 
     return (
-        <View style={styles.inputView}>
-            <TextInput
-                placeholder="Informe o texto da nova Tarefa" style={styles.input}
-                value={task.text} onChangeText={text => setTask({ ...task, text })}
+        <View style={styles.container}>
+            <Input
+                label="Adicionar uma Nova tarefa"
+                placeholder="Informe o texto da nova Tarefa"
+                value={task.text} containerStyle={styles.input}
+                onChangeText={text => setTask({ ...task, text })}
             />
-            <View style={styles.button}>
-                <Button title="Add" onPress={() => addTask()} />
-            </View>
+            <Button
+                buttonStyle={styles.button}
+                style={styles.button}
+                containerStyle={styles.buttonContainer}
+                onPress={() => addTask()}
+                icon={<Icon name="plus" size={18} color="white" />}
+            />
         </View>
     );
 
