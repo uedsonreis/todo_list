@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 
-import { Task } from '../../../domain';
+import { Task } from '../../../domain/task';
 
 import TaskAdd from '../../template/TaskAdd';
 import TaskList from '../../template/TaskList';

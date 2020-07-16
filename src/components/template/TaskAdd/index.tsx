@@ -4,7 +4,7 @@ import { Button, Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from './styles';
-import { Task } from '../../../domain';
+import { Task } from '../../../domain/task';
 
 type Props = { addNewTask: Function };
 

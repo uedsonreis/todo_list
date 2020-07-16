@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlatList, Dimensions, View, Text } from 'react-native';
 
-import { Task } from '../../../domain';
+import { Task } from '../../../domain/task';
 import TaskItem from '../TaskItem';
 import styles from './styles';
 

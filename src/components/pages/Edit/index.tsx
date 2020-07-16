@@ -4,7 +4,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { Button, Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import { Task } from '../../../domain';
+import { Task } from '../../../domain/task';
 import styles from './styles';
 
 type Props = { addNewTask: Function };
