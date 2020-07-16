@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { connect } from 'react-redux';
 
-import styles from './styles';
+import { creators } from '../../../domain/todo.list';
 import { Task } from '../../../domain/task';
+import styles from './styles';
 
-type Props = { addNewTask: Function };
+type Props = { create: Function };
 
-export default function TaskAdd(props: Props) {
+function TaskAdd(props: Props) {
 
     const createNewTask = () => ({ text: '', isDone: false });
 
@@ -19,7 +21,7 @@ export default function TaskAdd(props: Props) {
             alert('Informe o texto da tarefa!');
             return;
         }
-        props.addNewTask(task);
+        props.create(task);
         setTask(createNewTask());
     }
 
@@ -40,5 +42,10 @@ export default function TaskAdd(props: Props) {
             />
         </View>
     );
-
 }
+
+const mapActions = {
+    create: creators.createCreate,
+};
+
+export default connect(null, mapActions)(TaskAdd);
