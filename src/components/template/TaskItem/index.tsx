@@ -3,7 +3,7 @@ import { Text } from 'react-native';
 import { CheckBox, ListItem } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 
-import { Task } from '../../../domain';
+import { Task } from '../../../domain/task';
 import styles from './styles';
 
 type Props = { task: Task };
