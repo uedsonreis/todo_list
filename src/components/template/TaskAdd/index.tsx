@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
-import { Button, TextInput, View } from 'react-native';
+import { View } from 'react-native';
+import { Button, Input } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { connect } from 'react-redux';
 
+import { creators } from '../../../domain/todo.list';
+import { Task } from '../../../domain/task';
 import styles from './styles';
-import { Task } from '../../../domain';
 
-type Props = { addNewTask: Function };
+type Props = { create: Function };
 
-export default function TaskAdd(props: Props) {
+function TaskAdd(props: Props) {
 
     const createNewTask = () => ({ text: '', isDone: false });
 
@@ -17,20 +21,31 @@ export default function TaskAdd(props: Props) {
             alert('Informe o texto da tarefa!');
             return;
         }
-        props.addNewTask(task);
+        props.create(task);
         setTask(createNewTask());
     }
 
     return (
-        <View style={styles.inputView}>
-            <TextInput
-                placeholder="Informe o texto da nova Tarefa" style={styles.input}
-                value={task.text} onChangeText={text => setTask({ ...task, text })}
+        <View style={styles.container}>
+            <Input
+                label="Adicionar uma Nova tarefa"
+                placeholder="Informe o texto da nova Tarefa"
+                value={task.text} containerStyle={styles.input}
+                onChangeText={text => setTask({ ...task, text })}
             />
-            <View style={styles.button}>
-                <Button title="Add" onPress={() => addTask()} />
-            </View>
+            <Button
+                buttonStyle={styles.button}
+                style={styles.button}
+                containerStyle={styles.buttonContainer}
+                onPress={() => addTask()}
+                icon={<Icon name="plus" size={18} color="white" />}
+            />
         </View>
     );
-
 }
+
+const mapActions = {
+    create: creators.createCreate,
+};
+
+export default connect(null, mapActions)(TaskAdd);

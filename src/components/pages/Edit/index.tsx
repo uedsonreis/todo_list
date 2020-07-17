@@ -3,13 +3,15 @@ import { View } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Button, Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { connect } from 'react-redux';
 
-import { Task } from '../../../domain';
+import { creators } from '../../../domain/todo.list';
+import { Task } from '../../../domain/task';
 import styles from './styles';
 
-type Props = { addNewTask: Function };
+type Props = { update: Function, delete: Function };
 
-export default function EditTask(props: Props) {
+function EditTask(props: Props) {
 
     const navigation = useNavigation();
 
@@ -28,17 +30,18 @@ export default function EditTask(props: Props) {
     
     const [text, setText] = useState<string>(task.text);
 
-    function addTask() {
+    function saveTask() {
         if (!text) {
             alert('Informe o texto da tarefa!');
             return;
         }
         task.text = text;
+        props.update(task);
         navigation.goBack();
     }
 
     function remove() {
-        alert('Use Redux to change the Todo List!');
+        props.delete(task);
         navigation.goBack();
     }
 
@@ -46,11 +49,17 @@ export default function EditTask(props: Props) {
         <View style={styles.container}>
             <Input
                 label={(task.isDone) ? "Tarefa já realizada." : "Tarefa ainda não realizada."}
-                placeholder="Informe o texto da nova Tarefa"
+                placeholder="Informe o texto da Tarefa"
                 value={text} onChangeText={text => setText(text)}
             />
-            <Button containerStyle={styles.buttonSave} title="Salvar" onPress={() => addTask()} />
+            <Button containerStyle={styles.buttonSave} title="Salvar" onPress={() => saveTask()} />
         </View>
     );
-
 }
+
+const mapActions = {
+    update: creators.createUpdate,
+    delete: creators.createDelete,
+};
+
+export default connect(null, mapActions)(EditTask);
