@@ -9,12 +9,13 @@ import TaskList from '../../template/TaskList';
 import styles from './styles';
 
 const initialTasks: Task[] = [
-    { id: 1, text: 'Corrigir o bug do milenio', isDone: false },
-    { id: 2, text: 'Começar a preparar a aula sobre React', isDone: false },
-    { id: 3, text: 'Planejar o projeto de Vídeo Conferência', isDone: false },
-    { id: 4, text: 'Corrigir o POG no projeto', isDone: false },
-    { id: 5, text: 'Finalizar a aula sobre Redux', isDone: false },
-    { id: 6, text: 'Último', isDone: false },
+    { id: 1, text: 'Desenvolvimento de Apps Mobile', isDone: false },
+    { id: 2, text: 'Ferramentas, tecnologias e recomendações', isDone: false },
+    { id: 3, text: 'Principais características do React Native', isDone: false },
+    { id: 4, text: 'Criar e rodar um projeto com Expo', isDone: false },
+    { id: 5, text: 'State e Props', isDone: false },
+    { id: 6, text: 'Componentização', isDone: false },
+    { id: 7, text: 'Utilizando o React Native Elements', isDone: false },
 ];
 
 export default function Home() {
